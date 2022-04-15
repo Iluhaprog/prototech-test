@@ -37,7 +37,7 @@ php artisan serve
 2. run `docker build -t laravel-test .`
 3. run `docker-compose up`
 
-REST API endpoints
+### REST API endpoints
 1. `/api/sign-in` - for login.
 Request example: 
 ```bash
