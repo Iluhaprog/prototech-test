@@ -18,5 +18,5 @@ Route::post('/sign-up', 'AuthController@signUp');
 Route::post('/sign-in', 'AuthController@signIn')->name('login');
 
 Route::middleware('auth:api')->group(function () {
-    
+
 });
