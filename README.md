@@ -66,11 +66,11 @@ curl -X POST \
 }'
 ```
 
-3. `/api/currency/{valuteId}?from={date1}&to={date2}` - for getting data about currency
+3. `/api/currency/{valuteId}?from={date1}&to={date2}` - for getting data about currency date1, date2 format yyyy-mm-dd
 Request example
 ```bash
 curl -X GET \
-  'http://localhost:8000/api/currency/R01060?from=03/10/2022&to=04/14/2022' \
+  'http://localhost:8000/api/currency/R01060?from=2022-03-24&to=2022-03-24' \
   --header 'User-Agent: Thunder Client (https://www.thunderclient.com)' \
   --header 'Accept: application/json' \
   --header 'Authorization: Bearer {your token}'
