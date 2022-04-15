@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  application:
+    image: laravel-test
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    links:
+      - database
+    network_mode: "host"
