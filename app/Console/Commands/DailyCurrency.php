@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Http;
 use App\Models\Currency;
 use DateTime;
 
@@ -41,31 +40,13 @@ class DailyCurrency extends Command
     public function handle()
     {
         $currentDate = new DateTime();
-        $url = 'http://www.cbr.ru/scripts/XML_daily.asp?date_req=' . $currentDate->format('d/m/Y');
-        $currencies = simplexml_load_string(Http::get($url)->body());
+        $currencies = ApiRequest::getCurrenciesByDate($currentDate);
 
         foreach ($currencies as $currency) 
         {
-            Currency::create([
-                'valute_id' => $this->getId($currency),
-                'num_code' => $currency->NumCode,
-                'char_code' => $currency->CharCode,
-                'name' => $currency->Name,
-                'value' => $currency->Value,
-                'date' => new DateTime(),
-            ]);
+            Currency::create($currency);
         }
         
         $this->info('Success!');
-    }
-
-    private function getId($xml) {
-        $id = null;
-        
-        foreach ($xml->attributes() as $key => $value) {
-            $id = $value;
-        }
-
-        return $id;
     }
 }
