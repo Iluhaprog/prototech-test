@@ -22,6 +22,6 @@ class Currency extends Model
 
     public function getDateFormat()
     {
-        return 'U';
+        return 'c';
     }
 }
