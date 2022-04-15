@@ -29,3 +29,5 @@ php artisan schedule:work > path/to/log/file &
 ```bash
 php artisan serve
 ```
+
+[Link to frontend](https://github.com/Iluhaprog/prototech-test-frontend)
