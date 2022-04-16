@@ -8,6 +8,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 
+/**
+ * @OA\Schema(
+ *      type="object",
+ * ),
+ */
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -41,4 +46,54 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * @var(type="number")
+     * 
+     * @OA\Property(
+     *    property="id",
+     *    type="number",
+     * ),
+     */
+    public $id;
+
+    /**
+     * @var(type="string")
+     * 
+     * @OA\Property(
+     *    property="name",
+     *    type="string",
+     * ),
+     */
+    public $name;
+
+    /**
+     * @var(type="string")
+     * 
+     * @OA\Property(
+     *    property="email",
+     *    type="string",
+     * ),
+     */
+    public $email;
+
+    /**
+     * @var(type="string")
+     * 
+     * @OA\Property(
+     *    property="created_at",
+     *    type="string",
+     * ),
+     */
+    public $created_at;
+
+    /**
+     * @var(type="string")
+     * 
+     * @OA\Property(
+     *    property="updated_at",
+     *    type="string",
+     * ),
+     */
+    public $updated_at;
 }
