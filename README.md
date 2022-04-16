@@ -37,6 +37,9 @@ php artisan serve
 2. run `docker build -t laravel-test .`
 3. run `docker-compose up`
 
+### Path to Swagger is:
+http://{your host and port}/api/documentation
+
 ### REST API endpoints
 1. `/api/sign-in` - for login.
 Request example: 
