@@ -1,0 +1,112 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Currencies API",
+        "description": "This service allow you getting data about currency.",
+        "contact": {
+            "name": "Ilya Novak",
+            "email": "ilya.novak.dev@gmail.com"
+        },
+        "version": "0.0.1"
+    },
+    "servers": [
+        {
+            "url": "/api"
+        }
+    ],
+    "paths": {
+        "/currency/{valuteId}": {
+            "get": {
+                "tags": [
+                    "currency"
+                ],
+                "description": "Get info about valute by id and in range from date to date.",
+                "operationId": "984a5d9c1ff55d6606969b8b0421d0e0",
+                "parameters": [
+                    {
+                        "name": "valuteId",
+                        "in": "path",
+                        "description": "For example R01010, R01035."
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "description": "Date format yyyy-mm-dd"
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "description": "Date format yyyy-mm-dd"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return array for selected currency",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Currency"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Currency": {
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "valute_id": {
+                        "type": "string"
+                    },
+                    "num_code": {
+                        "type": "string"
+                    },
+                    "char_code": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "string"
+                    },
+                    "date": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "bearerAuth",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
