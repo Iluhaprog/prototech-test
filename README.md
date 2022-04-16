@@ -1,6 +1,7 @@
 ## [Link to frontend](https://github.com/Iluhaprog/prototech-test-frontend)
 
-#### before running
+### Common
+#### 1. before running
 1. Run this command:
 ```bash
   php artisan passport:install
@@ -16,7 +17,7 @@ DB_PASSWORD={your password}
 ```
 
 
-#### commands
+#### 2. commands
 1. if database is empty then fill it with currencies for last 30 days.
 ```bash 
 php artisan currencies:fill
@@ -26,16 +27,16 @@ php artisan currencies:fill
 php artisan schedule:work > path/to/log/file &
 ```
 
-#### run
+#### 3. run
 1. run app
 ```bash
 php artisan serve
 ```
 
-### also you can run it with docker
-1. go to root of project
-2. run `docker build -t laravel-test .`
-3. run `docker-compose up`
+> #### also you can run it with docker
+> 1. go to root of project
+> 2. run `docker build -t laravel-test .`
+> 3. run `docker-compose up`
 
 ### Path to Swagger is:
 http://{your host and port}/api/documentation
